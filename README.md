@@ -50,23 +50,23 @@ docker-compose.yml
 
 ```
 
-## Getting Started
+Getting Started
 
-### Prerequisites
+Prerequisites
 
 - Docker
 - Docker Compose
 - Go 1.22
 - Node.js v18+
 
-### Setup
+Setup
 
-```bash
+```
 git clone https://github.com/yourusername/skillsync.git
 cd skillsync
 cp .env.example .env
 docker-compose up --build
-````
+```
 
 Services
 
@@ -98,7 +98,7 @@ certifications(id, user_id, name, url, issued_at)
 
 Testing
 
-```bash
+```
 cd backend/auth-server
 go test ./...
 
@@ -110,9 +110,3 @@ Deployment
 
 SkillSync can be deployed on any Docker-compatible platform.
 
-## License
-
-MIT
-
-```
-```
