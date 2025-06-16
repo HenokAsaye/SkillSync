@@ -1,28 +1,28 @@
 ```markdown
-# SkillSync
+SkillSync
 
 SkillSync is a real-world platform designed to help organizations manage, assess, and visualize employee skills, certifications, and team readiness. It enables team leads and HR managers to identify gaps, build efficient teams, and make informed staffing decisions.
 
-## Tech Stack
+Tech Stack
 
-**Backend**
+Backend
 - Golang 1.22
 - PostgreSQL
 - Hasura GraphQL Engine
 - go-graphql-client
 - JWT Authentication
 
-**Frontend**
+Frontend
 - Vue 3 with Nuxt 3
 - Vite
 - Apollo Client
 - VeeValidate
 - Tailwind CSS
 
-**DevOps**
+DevOps
 - Docker and Docker Compose
 
-## Features
+Features
 
 - Secure authentication with JWT
 - Role-based access (Admin, Manager, Employee)
@@ -48,7 +48,7 @@ SkillSync is a real-world platform designed to help organizations manage, assess
 docker-compose.yml
 .env.example
 
-````
+```
 
 ## Getting Started
 
@@ -68,7 +68,7 @@ cp .env.example .env
 docker-compose up --build
 ````
 
-### Services
+Services
 
 | Service        | URL                                            |
 | -------------- | ---------------------------------------------- |
@@ -77,7 +77,7 @@ docker-compose up --build
 | Auth Server    | [http://localhost:5000](http://localhost:5000) |
 | Postgres       | localhost:5432                                 |
 
-## Authentication Flow
+Authentication Flow
 
 1. User logs in through the frontend
 2. Credentials sent to Go auth server
@@ -85,7 +85,7 @@ docker-compose up --build
 4. Frontend stores token and attaches it to GraphQL requests
 5. Hasura applies permissions based on the token
 
-## Database Schema
+Database Schema
 
 ```
 users(id, name, email, role)
@@ -96,7 +96,7 @@ team_members(team_id, user_id)
 certifications(id, user_id, name, url, issued_at)
 ```
 
-## Testing
+Testing
 
 ```bash
 cd backend/auth-server
@@ -106,7 +106,7 @@ cd frontend/nuxt-app
 yarn test
 ```
 
-## Deployment
+Deployment
 
 SkillSync can be deployed on any Docker-compatible platform.
 
