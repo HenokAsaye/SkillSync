@@ -96,7 +96,7 @@ team_members(team_id, user_id)
 certifications(id, user_id, name, url, issued_at)
 ```
 
-Testing
+Test
 
 ```
 cd backend/auth-server
