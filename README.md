@@ -5,19 +5,6 @@ SkillSync is a real-world platform designed to help organizations manage, assess
 
 Tech Stack
 
-Backend
-- Golang 1.22
-- PostgreSQL
-- Hasura GraphQL Engine
-- go-graphql-client
-- JWT Authentication
-
-Frontend
-- Vue 3 with Nuxt 3
-- Vite
-- Apollo Client
-- VeeValidate
-- Tailwind CSS
 
 DevOps
 - Docker and Docker Compose
