@@ -1,0 +1,77 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id              Int             @id @default(autoincrement())
+  name            String
+  email           String          @unique
+  password        String
+  role            Role            @default(Employee)
+  createdAt       DateTime        @default(now())
+
+  skills          UserSkill[]
+  certifications  Certification[]
+  teams           Team[]          @relation("ManagerTeams")
+  teamMemberships TeamMember[]
+}
+
+model Skill {
+  id       Int         @id @default(autoincrement())
+  name     String
+  category String?
+  users    UserSkill[]
+}
+
+model UserSkill {
+  id               Int         @id @default(autoincrement())
+  user             User        @relation(fields: [userId], references: [id])
+  userId           Int
+  skill            Skill       @relation(fields: [skillId], references: [id])
+  skillId          Int
+  proficiency      Proficiency
+  yearsExperience  Int
+}
+
+model Team {
+  id        Int          @id @default(autoincrement())
+  name      String
+  manager   User         @relation("ManagerTeams", fields: [managerId], references: [id])
+  managerId Int
+  members   TeamMember[]
+}
+
+model TeamMember {
+  team   Team @relation(fields: [teamId], references: [id])
+  teamId Int
+  user   User @relation(fields: [userId], references: [id])
+  userId Int
+
+  @@id([teamId, userId])
+}
+
+model Certification {
+  id        Int      @id @default(autoincrement())
+  user      User     @relation(fields: [userId], references: [id])
+  userId    Int
+  name      String
+  url       String
+  issuedAt  DateTime
+}
+
+enum Role {
+  Admin
+  Manager
+  Employee
+}
+
+enum Proficiency {
+  Beginner
+  Intermediate
+  Advanced
+}
